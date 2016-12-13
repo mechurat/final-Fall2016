@@ -1,0 +1,8 @@
+.artist-image{
+  height: 100%;
+  position: absolute;
+  text-decoration: none;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
