@@ -2,12 +2,16 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
+var multer = require('multer');
+var uploadPath = path.join(__dirname, '../public/uploads');
+var upload = multer({ dest: uploadPath});
+
 var app = express();
 app.use(express.static('public'));
-//Go and grab the artistSchema
+// Go and grab the artistSchema
 var Artist = require('../models/artistSchema');
 
-//Post the forms
+// Post the forms
 router.get('/', function (req, res) {
   var query = {};
   Artist.find(query, function (err, data) {
@@ -18,7 +22,7 @@ router.get('/', function (req, res) {
   });
 });
 
-//artist creation
+// artist creation
 router.get('/', function (req, res) {
   res.json({
     status: 'ok'
@@ -27,7 +31,7 @@ router.get('/', function (req, res) {
 
 
 //Post function for form submission
-router.post('/', function (req, res) {
+router.post('/', upload.single('image'), function (req, res) {
   console.log(req.file);
   var artist = new Artist({
     firstName: req.body.firstName,
@@ -38,6 +42,8 @@ router.post('/', function (req, res) {
     rateHourly: req.body.rateHourly,
     rateDay: req.body.rateDay,
     bio: req.body.bio,
+    // see https://bugs.jquery.com/ticket/2656
+    // imageFileName: req.file.image
   });
 
   artist.save(function (err, data) {
@@ -74,18 +80,7 @@ router.post('/edit', function (req, res) {
   });
 });
 
-router.get('/:artistID', function (req, res) {
-  Artist.findById({
-    _id: req.params.artistID
-  }, function (err, data) {
-    var pageData = {
-      artistData: [data]
-    };
-    res.send(pageData);
-  });
-});
-
-//Post function for document deletion
+// Post function for document deletion
 router.post('/remove', function (req, res) {
   console.log('remove request received')
   Artist.findByIdAndRemove(req.body.dSelectArtist, function (err, docs) {

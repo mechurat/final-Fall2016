@@ -7,7 +7,7 @@ Base Selection || 3 Forms
 <hr>
 <div class="row">
   <div class="columns text-center">
-    <h1>Hello, Chris</h1>
+    <h1>Administration Page</h1>
   </div>
 </div>
 <hr>
@@ -45,26 +45,30 @@ Base Selection || 3 Forms
             <label for="hourly-rate">Hourly Rate:</label>
             <div class="input-group">
               <span class="input-group-label">$</span>
-              <input class="input-group-field" type="text" id="hourly-rate" name="rateHourly">
+              <input class="input-group-field" type="number" id="hourly-rate" name="rateHourly">
             </div>
           </div>
           <div class="medium-3 columns">
             <label for="day-rate">Full-Day Rate:</label>
             <div class="input-group">
               <span class="input-group-label">$</span>
-              <input class="input-group-field" type="text" id="day-rate" name="rateDay">
+              <input class="input-group-field" type="number" id="day-rate" name="rateDay">
             </div>
           </div>
           <div class="medium-4 columns">
-            <label for="start-date">Year Artist started Tattooing:</label>
-            <input type="text" id="start-date" name="startDate" required>
+            <label for="start-date">Year Artist Began:</label>
+            <input type="number" id="start-date" name="startDate" required>
           </div>
           <div class="columns">
             <label for="artist-bio">Artist Bio:</label>
             <textarea id="artist-bio" rows="10" name="bio" placeholder="Biography is required" required></textarea>
           </div>
-          <div class="columns">
-            <input type="submit" class="button" name="submit" id="add" value="Add Artist">
+          <div class="small-6 medium-3 columns">
+            <label for="artist-image" class="button">Choose Profile Image</label>
+            <input id="artist-image" type="file" class="show-for-sr" name="image" accepts="image/*">
+          </div>
+          <div class="small-6 medium-3 columns">
+            <input type="submit" class="button alert" name="submit" id="add" value="Add Artist">
           </div>
         </form>
       </div>
@@ -111,26 +115,26 @@ Base Selection || 3 Forms
               <label for="edit-hourly-rate">Edit Hourly Rate:</label>
               <div class="input-group">
                 <span class="input-group-label">$</span>
-                <input class="input-group-field" type="text" id="edit-hourly-rate" name="rateHourly">
+                <input class="input-group-field" type="number" id="edit-hourly-rate" name="rateHourly">
               </div>
             </div>
             <div class="medium-3 columns">
               <label for="edit-day-rate">Edit Full-Day Rate:</label>
               <div class="input-group">
                 <span class="input-group-label">$</span>
-                <input class="input-group-field" type="text" id="edit-day-rate" name="rateDay">
+                <input class="input-group-field" type="number" id="edit-day-rate" name="rateDay">
               </div>
             </div>
             <div class="medium-4 columns">
               <label for="edit-start-date">Edit Start Year</label>
-              <input type="text" id="edit-start-date" name="startDate" value="">
+              <input type="number" id="edit-start-date" name="startDate" value="">
             </div>
             <div class="columns">
               <label for="edit-artist-bio">Edit Artist Bio:</label>
               <textarea id="edit-artist-bio" rows="10" name="bio" value=""></textarea>
             </div>
             <div class="columns">
-              <input type="submit" class="button" name="edit" id="edit" value="Confirm Edit">
+              <input type="submit" class="button alert" name="edit" id="edit" value="Confirm Edit">
             </div>
           </div>
         </form>

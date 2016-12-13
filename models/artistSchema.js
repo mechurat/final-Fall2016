@@ -16,11 +16,12 @@ var artistSchema = new Schema({
     required: true,
     unique: true
   },
-  startDate: String,
+  startDate: Number,
   artStyle: [String],
-  rateHourly: String,
-  rateDay: String,
+  rateHourly: Number,
+  rateDay: Number,
   bio: String,
+  imageFileName: String,
   dateCreated: {
     type: Date,
     default: Date.now
