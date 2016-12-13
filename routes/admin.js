@@ -50,7 +50,7 @@ router.post('/', upload.single('image'), function (req, res) {
     if (err) {
       console.log('err at artist save');
     } else{
-      res.redirect(303, '/admin/verified');
+      res.redirect(200, '/admin/verified');
       return;
     } 
   });
@@ -75,7 +75,7 @@ router.post('/edit', function (req, res) {
       res.json(err);
       console.log('error at edit artist');
     } else {
-      res.redirect(303, 'admin/verified');
+      res.redirect(200, 'admin/verified');
     }
   });
 });
@@ -90,7 +90,7 @@ router.post('/remove', function (req, res) {
       console.log('error at remove artist');
       res.json(err);
     } else{
-      res.redirect(303, 'admin/verified')
+      res.redirect(200, 'admin/verified')
       return;
     }
   });
